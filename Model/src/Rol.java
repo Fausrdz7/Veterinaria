@@ -1,11 +1,11 @@
-public enum Role {
+public enum Rol {
     ADMIN ("Admin"),
     CLIENTE ("Cliente"),
     VETERINARIO ("Veterinario");
 
     private final String role;
 
-    Role(String role) {
+    Rol(String role) {
         this.role = role;
     }
 
