@@ -1,29 +1,40 @@
+mport java.util.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-public class Coleccion < T extends Filtrable<T> & Buscable<T> , F > {
+public class Coleccion<T extends Filtrable<I> & Buscable<B>, F extends Set<T>, B, I> {
 
-    private final F<E> colection = new TreeSet<E>();
+    private final F colection;
 
-    public boolean agregar(E obj) {
+    public Coleccion(F colection) {
+        this.colection = colection;
+    }
+
+    public boolean agregar(T obj) {
         return colection.add(obj);
     }
 
-    public E buscar(C data) throws ElementoNoEncontradoException {
-        return colection.stream().filter(obj -> obj.coincideCon(data) ).findFirst()
-                .orElseThrow( ()-> new Exception( String.format("No se pudo encontrar: %s ", data)));
+    public T buscar(B data) throws Exception {
+        return colection.stream()
+                .filter(obj -> obj.buscar(data))
+                .findFirst()
+                .orElseThrow(() -> new Exception(String.format("No se pudo encontrar: %s", data)));
     }
 
-    public List<E> filtrar(F data) {
-        return colection.stream().filter(obj -> obj.cumpleFiltro(data)).toList();
+    public List<T> filtrar(I data) {
+        return colection.stream()
+                .filter(obj -> obj.filtrar( data ))
+                .collect(Collectors.toList());
     }
 
-    public boolean eliminar( E obj ){
-        return colection.remove( obj );
+    public boolean eliminar(T obj) {
+        return colection.remove(obj);
     }
 
-    public List<E> listar() {
-        return colection.stream().toList();
+    public List<T> listar() {
+        return new ArrayList<>(colection);
     }
 
 }

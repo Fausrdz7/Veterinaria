@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Cliente extends Usuario {
+public class Cliente extends Usuario implements Filtrable<String>, Buscable<String> {
     private List <Mascota>mascotas;
 
     public Cliente(String nombreUsuario, String contraseña, String dni, Rol role, String nombre, String apellido, List<Mascota> mascotas) {
