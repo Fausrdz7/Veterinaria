@@ -1,4 +1,8 @@
+package Entidades;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Turno {
     private String observaciones;
@@ -6,7 +10,7 @@ public class Turno {
     private Mascota mascota;
     private Date horaInic;
     private  Date horaFinal;
-    private boolean competado; ///true fue completado && false no fue completada;
+    private boolean comlpetado; ///true fue completado && false no fue completada
 
 
 }

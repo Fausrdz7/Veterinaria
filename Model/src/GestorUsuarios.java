@@ -1,3 +1,5 @@
+import Entidades.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 

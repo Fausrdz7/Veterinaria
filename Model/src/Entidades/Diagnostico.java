@@ -1,3 +1,8 @@
+package Entidades;
+
+import Entidades.Insumo;
+import Entidades.Turno;
+
 public class Diagnostico {
 private Mascota mascota;
 private Turno turno;

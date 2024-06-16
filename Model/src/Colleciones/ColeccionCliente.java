@@ -1,3 +1,7 @@
+package Colleciones;
+
+import Entidades.Cliente;
+
 import java.util.TreeSet;
 
 public class ColeccionCliente {

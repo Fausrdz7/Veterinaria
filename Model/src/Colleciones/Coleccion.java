@@ -1,4 +1,8 @@
-mport java.util.*;
+package Colleciones;
+
+import Interfaces.Buscable;
+import Interfaces.Filtrable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

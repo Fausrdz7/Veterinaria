@@ -1,3 +1,7 @@
+package Entidades;
+
+import Enumeraciones.Rol;
+
 public abstract class   Usuario  {
     private String nombreUsuario;
     private String contraseña;
@@ -5,6 +9,7 @@ public abstract class   Usuario  {
     private Rol role;
     private String nombre;
     private  String apellido;
+    private boolean estado; /// true esta dado de alta, false esta dado de baja.
 
 
     public Usuario(String nombreUsuario, String contraseña, String dni, Rol role, String nombre, String apellido) {

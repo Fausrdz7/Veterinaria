@@ -1,3 +1,5 @@
+import Entidades.Insumo;
+
 import java.util.ArrayList;
 import java.util.List;
 

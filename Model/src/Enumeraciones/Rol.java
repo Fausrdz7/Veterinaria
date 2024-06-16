@@ -1,3 +1,5 @@
+package Enumeraciones;
+
 public enum Rol {
     ADMIN ("Admin"),
     CLIENTE ("Cliente"),
