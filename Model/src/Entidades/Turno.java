@@ -12,5 +12,7 @@ public class Turno {
     private  Date horaFinal;
     private boolean comlpetado; ///true fue completado && false no fue completada
 
-
+    public boolean setComlpetado(boolean comlpetado) {
+       return this.comlpetado = comlpetado;
+    }
 }

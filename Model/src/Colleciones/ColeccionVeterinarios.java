@@ -9,13 +9,16 @@ public class ColeccionVeterinarios {
     public Veterinario buscarVeterinario(String matricula)  {
         try {
             return coleccionVeterinario.buscar(matricula);
-        } catch (ElementoNoEncontradoException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;        }
     }
     public boolean agregar (Veterinario veterinario){
        return coleccionVeterinario.agregar(veterinario);
     }
-    public
+
+    public boolean finalizarTurno(){
+        return this.turno.setComlpetado(true);
+    }
 
 }
