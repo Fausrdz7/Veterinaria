@@ -6,39 +6,38 @@ import Interfaces.Filtrable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-public class Coleccion<T extends Filtrable<I> & Buscable<B>, F extends Set<T>, B, I> {
+public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
 
-    private final F colection;
+    private final TreeSet<T> elementos=new TreeSet<>();
 
-    public Coleccion(F colection) {
-        this.colection = colection;
-    }
+
 
     public boolean agregar(T obj) {
-        return colection.add(obj);
+        return this.elementos.add(obj);
     }
 
     public T buscar(B data) throws Exception {
-        return colection.stream()
+        return elementos.stream()
                 .filter(obj -> obj.buscar(data))
                 .findFirst()
                 .orElseThrow(() -> new Exception(String.format("No se pudo encontrar: %s", data)));
     }
 
     public List<T> filtrar(I data) {
-        return colection.stream()
+        return elementos.stream()
                 .filter(obj -> obj.filtrar( data ))
                 .collect(Collectors.toList());
     }
 
     public boolean eliminar(T obj) {
-        return colection.remove(obj);
+        return elementos.remove(obj);
     }
 
     public List<T> listar() {
-        return new ArrayList<>(colection);
+        return new ArrayList<>(elementos);
     }
 
 }
