@@ -3,29 +3,28 @@ package Colleciones;
 import Entidades.Cliente;
 
 import java.util.List;
-import java.util.TreeSet;
 
 public class    ColeccionCliente {
-    private final Coleccion< Cliente,  String, String > colleccionCliente = new Coleccion<>();
+    private final Coleccion< Cliente,  String, String > coleccionCliente = new Coleccion<>();
 
     public void agregar(Cliente cliente){
-        colleccionCliente.agregar(cliente);
+        coleccionCliente.agregar(cliente);
     }
     public boolean agregarCliente(Cliente vuelo) {
-        return colleccionCliente.agregar(vuelo);
+        return coleccionCliente.agregar(vuelo);
     }
 
     public Cliente buscarCliente(String codigoVuelo) throws Exception {
-        return colleccionCliente.buscar(codigoVuelo);
+        return coleccionCliente.buscar(codigoVuelo);
     }
 
     public List<Cliente> filtrarCLientes(String dni) {
-        return colleccionCliente.filtrar(dni);
+        return coleccionCliente.filtrar(dni);
     }
 
     public boolean eliminarCliente(String dni) throws Exception {
         Cliente vuelo = buscarCliente(dni);
-        return colleccionCliente.eliminar(vuelo);
+        return coleccionCliente.eliminar(vuelo);
     }
 
 }

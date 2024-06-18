@@ -2,11 +2,8 @@ package Colleciones;
 
 import Entidades.Turno;
 import Entidades.Veterinario;
-import Exepciones.ElementoNoEncontradoException;
 
-import java.util.Scanner;
-
-public class ColeccionVeterinarios {
+public class ColeccionVeterinario {
     private final Coleccion<Veterinario,String,String>coleccionVeterinario=new Coleccion<>();
 
     public Veterinario buscarVeterinario(String matricula)  {
@@ -19,17 +16,14 @@ public class ColeccionVeterinarios {
     public boolean agregarVeterinario (Veterinario veterinario){
        return coleccionVeterinario.agregar(veterinario);
     }
-public void observacionTurno(String matriculaTurno,String observaciones){
-    Turno turno = buscarTurno(matriculaTurno);
-    turno.setObservaciones(observaciones);
-}
+
+    public void observacionTurno(String matriculaTurno,String observaciones){
+        Turno turno = buscarTurno(matriculaTurno);
+        turno.setObservaciones(observaciones);
+    }
     public boolean finalizarTurno(String matriculaTurno){
         Turno turno=buscarTurno(matriculaTurno);
         return turno.setComlpetado(true);
     }
-
-    public void verTurnos()
-
-
 
 }

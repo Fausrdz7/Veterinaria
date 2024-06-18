@@ -24,4 +24,6 @@ public class ColeccionAdministrador {
         Administrador administrador = buscarAdministrador(dni);
         return coleccionAdministrador.eliminar(administrador);
     }
+
+
 }
