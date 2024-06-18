@@ -13,8 +13,6 @@ public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
 
     private final TreeSet<T> elementos=new TreeSet<>();
 
-
-
     public boolean agregar(T obj) {
         return this.elementos.add(obj);
     }

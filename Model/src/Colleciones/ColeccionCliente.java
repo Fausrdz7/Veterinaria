@@ -5,8 +5,8 @@ import Entidades.Cliente;
 import java.util.List;
 import java.util.TreeSet;
 
-public class ColeccionCliente {
-    private Coleccion< Cliente,  String, String > colleccionCliente = new Coleccion<>();
+public class    ColeccionCliente {
+    private final Coleccion< Cliente,  String, String > colleccionCliente = new Coleccion<>();
 
     public void agregar(Cliente cliente){
         colleccionCliente.agregar(cliente);
@@ -27,5 +27,5 @@ public class ColeccionCliente {
         Cliente vuelo = buscarCliente(dni);
         return colleccionCliente.eliminar(vuelo);
     }
-}
+
 }
