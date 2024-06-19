@@ -17,13 +17,13 @@ public class ColeccionVeterinario {
        return coleccionVeterinario.agregar(veterinario);
     }
 
-    public void observacionTurno(String matriculaTurno,String observaciones){
-        Turno turno = buscarTurno(matriculaTurno);
-        turno.setObservaciones(observaciones);
-    }
-    public boolean finalizarTurno(String matriculaTurno){
-        Turno turno=buscarTurno(matriculaTurno);
-        return turno.setComlpetado(true);
-    }
+//    public void observacionTurno(String matriculaTurno,String observaciones){
+//        Turno turno = buscarTurno(matriculaTurno);
+//        turno.setObservaciones(observaciones);
+//    }
+//    public boolean finalizarTurno(String matriculaTurno){
+//        Turno turno=buscarTurno(matriculaTurno);
+//        return turno.setComlpetado(true);
+//    }
 
 }
