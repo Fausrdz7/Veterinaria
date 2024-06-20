@@ -2,6 +2,8 @@ package Colleciones;
 
 import Entidades.Administrador;
 import Entidades.Cliente;
+import Entidades.Turno;
+import Exepciones.ElementoNoEncontradoException;
 
 import java.util.List;
 
@@ -12,17 +14,27 @@ public class ColeccionAdministrador {
         return coleccionAdministrador.agregar(administrador);
     }
 
-    public Administrador buscarAdministrador(String dni) throws Exception {
-        return coleccionAdministrador.buscar(dni);
+
+    public Administrador buscaraAdmin(String dni){
+        try {
+            return coleccionAdministrador.encontrar(dni);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Administrador> filtrarAdministrador(String dni) {
         return coleccionAdministrador.filtrar(dni);
     }
 
-    public boolean eliminarAdministrador(String dni) throws Exception {
-        Administrador administrador = buscarAdministrador(dni);
-        return coleccionAdministrador.eliminar(administrador);
+    public boolean eliminarAdministrador(String dni)  {
+        try {
+            Administrador administrador = buscaraAdmin(dni);
+       return coleccionAdministrador.eliminar(administrador);}
+        catch (Exception e){
+            System.out.println("no se encontro este administrador");
+            return false;
+        }
     }
 
 

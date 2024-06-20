@@ -9,7 +9,7 @@ public class LogIn {
     private JPanel container;
     private JTextField usernameInput;
     private JTextField passwordInput;
-    private JButton logInButton;
+    private JButton LOGINButton;
 
     public static void main(String[] args) {
         System.out.println("Iniciando UI...");

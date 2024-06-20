@@ -23,4 +23,12 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
     public boolean filtrar(String criterio) {
         return false;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Cliente getDueno() {
+        return dueno;
+    }
 }

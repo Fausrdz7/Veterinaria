@@ -14,14 +14,15 @@ public class ColeccionMascota {
     }
 
     public Mascota buscarMascota(String dni) throws Exception {
-        return coleccionMascota.buscar(dni);
+        return coleccionMascota.encontrar(dni);
     }
+
 
     public List<Mascota> filtrarAdministrador(String dni) {
         return coleccionMascota.filtrar(dni);
     }
 
-    public boolean eliminarAdministrador(String dni) throws Exception {
+    public boolean eliminarMascota(String dni) throws Exception {
         Mascota mascota = buscarMascota(dni);
         return coleccionMascota.eliminar(mascota);
     }

@@ -1,6 +1,8 @@
 package Colleciones;
 
 import Entidades.Cliente;
+import Entidades.Turno;
+import Exepciones.ElementoNoEncontradoException;
 
 import java.util.List;
 
@@ -14,8 +16,12 @@ public class    ColeccionCliente {
         return coleccionCliente.agregar(vuelo);
     }
 
-    public Cliente buscarCliente(String codigoVuelo) throws Exception {
-        return coleccionCliente.buscar(codigoVuelo);
+    public Cliente buscarCliente(String dni) {
+        try {
+            return coleccionCliente.encontrar(dni);
+        } catch (ElementoNoEncontradoException e) {
+            System.out.println(e.getMessage());
+            return null;        }
     }
 
     public List<Cliente> filtrarCLientes(String dni) {

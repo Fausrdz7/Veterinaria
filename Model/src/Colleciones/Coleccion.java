@@ -1,5 +1,6 @@
 package Colleciones;
 
+import Exepciones.ElementoNoEncontradoException;
 import Interfaces.Buscable;
 import Interfaces.Filtrable;
 
@@ -17,12 +18,13 @@ public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
         return this.elementos.add(obj);
     }
 
-    public T buscar(B data) throws Exception {
+    public T encontrar(B data) throws ElementoNoEncontradoException {
         return elementos.stream()
                 .filter(obj -> obj.buscar(data))
                 .findFirst()
-                .orElseThrow(() -> new Exception(String.format("No se pudo encontrar: %s", data)));
+                .orElseThrow(() -> new ElementoNoEncontradoException (String.format("No se pudo encontrar: %s", data)));
     }
+
 
     public List<T> filtrar(I data) {
         return elementos.stream()
