@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+
 public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
 
     private final TreeSet<T> elementos=new TreeSet<>();

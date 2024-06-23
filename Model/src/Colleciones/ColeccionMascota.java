@@ -4,7 +4,10 @@ import Entidades.Administrador;
 import Entidades.Mascota;
 import Entidades.Veterinario;
 
+import java.io.*;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class ColeccionMascota {
     private final Coleccion<Mascota,String,String>coleccionMascota = new Coleccion<>();
@@ -24,5 +27,19 @@ public class ColeccionMascota {
     public boolean eliminarAdministrador(String dni) throws Exception {
         Mascota mascota = buscarMascota(dni);
         return coleccionMascota.eliminar(mascota);
+    }
+
+    public void guardarMascotas(String fileName) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(coleccionMascota);
+        }
+    }
+
+    public void cargarMascotas(String fileName) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            TreeSet<Mascota> mascotas = (TreeSet<Mascota>) ois.readObject();
+            coleccionMascota.clear();
+            coleccionMascota.addAll(mascotas);
+        }
     }
 }

@@ -2,7 +2,10 @@ package Colleciones;
 
 import Entidades.Cliente;
 
+import java.io.*;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class    ColeccionCliente {
     private final Coleccion< Cliente,  String, String > coleccionCliente = new Coleccion<>();
@@ -25,6 +28,20 @@ public class    ColeccionCliente {
     public boolean eliminarCliente(String dni) throws Exception {
         Cliente vuelo = buscarCliente(dni);
         return coleccionCliente.eliminar(vuelo);
+    }
+
+    public void guardarClientes(String fileName) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(coleccionCliente);
+        }
+    }
+
+    public void cargarClientes(String fileName) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            TreeSet<Cliente> clientes = (TreeSet<Cliente>) ois.readObject();
+            coleccionCliente.clear();
+            coleccionCliente.addAll(clientes);
+        }
     }
 
 }

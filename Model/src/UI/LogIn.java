@@ -3,7 +3,6 @@ package UI;
 import javax.swing.*;
 
 public class LogIn {
-    private final static String newline = "\n";
 
     private final JFrame frame;
     private JPanel container;
@@ -33,8 +32,5 @@ public class LogIn {
 
             System.out.printf( "El texto es :  %s\n", text );
         } );
-
     }
-
-
 }
