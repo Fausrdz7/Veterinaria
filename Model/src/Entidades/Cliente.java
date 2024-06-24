@@ -8,11 +8,11 @@ import Interfaces.Filtrable;
 
 import java.util.List;
 
-public class Cliente extends Usuario implements Filtrable<String>, Buscable<String> {
+public class Cliente extends Usuario implements Filtrable<String>, Buscable<String>, Comparable<Cliente> {
     private List <Mascota>mascotas;
 
-    public Cliente(String nombreUsuario, String contraseña, String dni, Rol ro, String nombre, String apellido, List<Mascota> mascotas) {
-        super(nombreUsuario, contraseña, dni, ro, nombre, apellido);
+    public Cliente(String nombreUsuario, String contraseña, String dni, Rol rol, String nombre, String apellido, List<Mascota> mascotas) {
+        super(nombreUsuario, contraseña, dni, rol, nombre, apellido);
         this.mascotas = mascotas;
     }
 
@@ -23,6 +23,11 @@ public class Cliente extends Usuario implements Filtrable<String>, Buscable<Stri
 
     @Override
     public boolean buscar(String criterio) {
-        return false;
+        return criterio.equals( this.getDni() );
+    }
+
+    @Override
+    public int compareTo(Cliente obj) {
+        return this.getDni().compareTo(obj.getDni());
     }
 }

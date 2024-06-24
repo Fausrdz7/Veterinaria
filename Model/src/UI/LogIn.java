@@ -1,39 +1,46 @@
 package UI;
 
+import Entidades.Usuario;
+import gestor.GestorVeterinario;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class LogIn {
     private final static String newline = "\n";
 
-    private final JFrame frame;
-    private JPanel container;
-    private JTextField usernameInput;
-    private JTextField passwordInput;
+    private GestorVeterinario gestor = GestorVeterinario.getGestor();
+    private JPanel panel;
+    private JTextField dniInput;
     private JButton logInButton;
+    private JPanel login;
+    private JPasswordField passwordInput;
+    private JPanel mainPanel;
+    private CardLayout cardLayout;
 
-    public static void main(String[] args) {
-        System.out.println("Iniciando UI...");
+    public LogIn(JPanel mainPanel, CardLayout cardLayout) {
+        this.mainPanel = mainPanel;
+        this.cardLayout = cardLayout;
 
-        LogIn logInInstance = new LogIn();
+        logInButton.addActionListener( e -> {
+            if ( dniInput.getText().length() > 3 && new String( passwordInput.getPassword() ).length() > 3  ){
+
+                Usuario nUser = gestor.iniciarSesion(dniInput.getText(), new String( passwordInput.getPassword() ) );
+
+                if (nUser == null){
+                    JOptionPane.showMessageDialog( null, "Usuario y/o contraseña incorrectos." );
+                }
+
+            }else {
+                JOptionPane.showMessageDialog( null, "Usuario y contraseña invalidos." );
+            }
+            // cardLayout.show( mainPanel, "cliente" );
+        } );
 
     }
 
-    public  LogIn(){
-        frame = new JFrame("Reserva de vuelos");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setContentPane(container);
-
-        frame.pack();
-        frame.setVisible(true);
-        frame.setSize( 500, 600 );
-
-        usernameInput.addActionListener( e -> {
-            String text = usernameInput.getText();
-
-            System.out.printf( "El texto es :  %s\n", text );
-        } );
-
+    public JPanel getPanel(){
+        return panel;
     }
 
 

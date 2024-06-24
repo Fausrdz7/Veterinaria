@@ -2,7 +2,7 @@ package Entidades;
 
 import Enumeraciones.Rol;
 
-public abstract class   Usuario  {
+public class Usuario {
     private String nombreUsuario;
     private String contraseña;
     private  String dni;
