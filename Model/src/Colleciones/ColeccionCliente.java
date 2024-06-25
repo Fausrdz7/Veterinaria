@@ -36,11 +36,15 @@ public class    ColeccionCliente {
         }
     }
 
-    public void cargarClientes(String fileName) throws IOException, ClassNotFoundException {
+    public void cargarClientes(String fileName) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             TreeSet<Cliente> clientes = (TreeSet<Cliente>) ois.readObject();
             coleccionCliente.clear();
             coleccionCliente.addAll(clientes);
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo " + fileName + " no se encontró.");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace(); // Manejar excepciones de lectura o deserialización
         }
     }
 

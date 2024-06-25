@@ -31,6 +31,8 @@ public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
                 .collect(Collectors.toList());
     }
 
+
+
     public boolean eliminar(T obj) {
         return elementos.remove(obj);
     }
@@ -39,4 +41,11 @@ public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
         return new ArrayList<>(elementos);
     }
 
+    public void clear() {
+        elementos.clear();
+    }
+
+    public void addAll(TreeSet<T> clientes) {
+        elementos.addAll( clientes );
+    }
 }
