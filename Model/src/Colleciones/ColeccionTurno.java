@@ -4,10 +4,12 @@ import Entidades.Cliente;
 import Entidades.Mascota;
 import Entidades.Turno;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ColeccionTurno {
-    private final Coleccion<Turno,String,Mascota> coleccionTurno = new Coleccion<>();
+    private final ArrayList coleccionTurno = new Coleccion<>();
+
     public Turno buscarTurno(String idTurno){
         try {
             return coleccionTurno.buscar(idTurno);

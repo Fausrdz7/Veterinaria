@@ -15,7 +15,7 @@ public class CrearCliente {
 
     public CrearCliente() {
         crearButton.addActionListener( e ->{
-            System.out.printf( "apellido: %s \n", apellidoInput.getText() );
+            System.out.printf( "nombre: %s \n", nombreInput.getText() );
         } );
     }
 

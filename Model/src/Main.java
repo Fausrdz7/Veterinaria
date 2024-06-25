@@ -27,7 +27,7 @@ public class Main {
         mainPanel = new JPanel(cardLayout);
 
         //mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
-        mainPanel.add( new buscarUsuarioAdmin().getPanel() );
+        mainPanel.add( new CrearCliente().getPanel() );
 
         frame.add( mainPanel );
 
