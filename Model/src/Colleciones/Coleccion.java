@@ -1,5 +1,6 @@
 package Colleciones;
 
+import Entidades.Turno;
 import Interfaces.Buscable;
 import Interfaces.Filtrable;
 
