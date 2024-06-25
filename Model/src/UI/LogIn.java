@@ -49,6 +49,7 @@ public class LogIn {
 
     public JPanel getPanel(){
         return panel;
+        //Comteario
     }
 
 
