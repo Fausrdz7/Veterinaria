@@ -25,4 +25,8 @@ public class ColeccionMascota {
         Mascota mascota = buscarMascota(dni);
         return coleccionMascota.eliminar(mascota);
     }
+
+    public List<Mascota> getMascotasByClient(String dni) {
+        return coleccionMascota.filtrar(dni);
+    }
 }

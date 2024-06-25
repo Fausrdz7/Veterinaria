@@ -1,7 +1,7 @@
 package UI;
 
 import Entidades.Usuario;
-import gestor.GestorVeterinario;
+import gestor.SGSystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.awt.*;
 public class LogIn {
     private final static String newline = "\n";
 
-    private GestorVeterinario gestor = GestorVeterinario.getGestor();
+    private SGSystem gestor = SGSystem.getGestor();
     private JPanel panel;
     private JTextField dniInput;
     private JButton logInButton;
@@ -34,7 +34,7 @@ public class LogIn {
                     JOptionPane.showMessageDialog( null, "Usuario y/o contraseña incorrectos." );
                 }else {
 
-                    mainPanel.add( new VistaCliente( nUser ).getPanel(), "vistaCliente" );
+                    mainPanel.add( new VistaCliente( mainPanel, cardLayout, nUser ).getPanel(), "vistaCliente" );
                     cardLayout.show( mainPanel, "vistaCliente" );
                 }
 

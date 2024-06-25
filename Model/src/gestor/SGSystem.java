@@ -4,16 +4,16 @@ import Colleciones.ColeccionCliente;
 import Entidades.Cliente;
 import Entidades.Usuario;
 
-public class GestorVeterinario {
-    private static GestorVeterinario gestor;
+public class SGSystem {
+    private static SGSystem gestor;
 
     private final ColeccionCliente  coleccionCliente = new ColeccionCliente();
 
     private static Cliente clienteSeleccionado;
 
-    public static GestorVeterinario getGestor() {
+    public static SGSystem getGestor() {
         if (gestor == null){
-            gestor = new GestorVeterinario();
+            gestor = new SGSystem();
         }
         return gestor;
     }
