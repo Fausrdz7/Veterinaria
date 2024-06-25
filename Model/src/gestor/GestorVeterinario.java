@@ -9,7 +9,7 @@ public class GestorVeterinario {
 
     private final ColeccionCliente  coleccionCliente = new ColeccionCliente();
 
-    private Cliente cliente;
+    private static Cliente clienteSeleccionado;
 
     public static GestorVeterinario getGestor() {
         if (gestor == null){
@@ -24,6 +24,7 @@ public class GestorVeterinario {
 
         try {
             result =  coleccionCliente.buscarCliente( dni );
+            clienteSeleccionado = result;
         }catch ( Exception e ){
             return null;
         }
@@ -33,5 +34,20 @@ public class GestorVeterinario {
         }
 
         return (Usuario) result;
+    }
+
+
+
+    public Cliente getCliente() {
+        return clienteSeleccionado;
+    }
+
+
+    public Cliente getClienteByUser(Usuario user) {
+        try {
+            return coleccionCliente.buscarCliente(user.getDni() );
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

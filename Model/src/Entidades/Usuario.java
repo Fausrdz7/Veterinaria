@@ -5,10 +5,10 @@ import Enumeraciones.Rol;
 public class Usuario {
     private String nombreUsuario;
     private String contraseña;
-    private  String dni;
+    private String dni;
     private Rol role;
     private String nombre;
-    private  String apellido;
+    private String apellido;
     private boolean estado; /// true esta dado de alta, false esta dado de baja.
 
 
@@ -24,6 +24,7 @@ public class Usuario {
     public String getNombreUsuario() {
         return nombreUsuario;
     }
+
 
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
@@ -68,5 +69,18 @@ public class Usuario {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-}
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombreUsuario='" + nombreUsuario + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", dni='" + dni + '\'' +
+                ", role=" + role +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", estado=" + estado +
+                '}';
+    }
+
+}

@@ -7,8 +7,9 @@ import java.awt.*;
 public class Main {
 
     private  static JFrame frame;
-    private static CardLayout cardLayout;
+    private static CardLayout cardLayout ;
     private static JPanel mainPanel;
+
 
     public static void main(String[] args) {
         init();
@@ -24,7 +25,7 @@ public class Main {
         mainPanel = new JPanel(cardLayout);
 
         mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
-        mainPanel.add( new VistaCliente().getPanel() , "cliente");
+        mainPanel.add( new VistaCliente(  ).getPanel() , "cliente");
 
         frame.add( mainPanel );
 
@@ -34,4 +35,6 @@ public class Main {
         frame.setVisible(true);
 
     }
+
+
 }

@@ -18,9 +18,12 @@ public class LogIn {
     private JPanel mainPanel;
     private CardLayout cardLayout;
 
+
+
     public LogIn(JPanel mainPanel, CardLayout cardLayout) {
         this.mainPanel = mainPanel;
         this.cardLayout = cardLayout;
+
 
         logInButton.addActionListener( e -> {
             if ( dniInput.getText().length() > 3 && new String( passwordInput.getPassword() ).length() > 3  ){
@@ -29,6 +32,10 @@ public class LogIn {
 
                 if (nUser == null){
                     JOptionPane.showMessageDialog( null, "Usuario y/o contraseña incorrectos." );
+                }else {
+
+                    mainPanel.add( new VistaCliente( nUser ).getPanel(), "vistaCliente" );
+                    cardLayout.show( mainPanel, "vistaCliente" );
                 }
 
             }else {
@@ -38,6 +45,7 @@ public class LogIn {
         } );
 
     }
+
 
     public JPanel getPanel(){
         return panel;
