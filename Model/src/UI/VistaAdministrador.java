@@ -13,6 +13,10 @@ public class VistaAdministrador {
     private JTextField HoraDeFinalizacion;
     private JButton confirmarCambiosButton;
     private JTabbedPane tabbedPane1;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
 
     public VistaAdministrador(SGSystem gestor, JTextField observaciones, JTextField mascota, JTextField horaDeInicio, JTextField horaDeFinalizacion, JButton confirmarCambiosButton, JTabbedPane tabbedPane1) {
         this.gestor = gestor;

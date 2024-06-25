@@ -42,12 +42,15 @@ public class SGSystem {
         }catch (Exception e){
             e.printStackTrace();
         }
-        try{
-            veterinarioSeleccionado = coleccionVeterinario.buscarVeterinario(dni);
-            System.out.println(veterinarioSeleccionado.toString());
-            result = (Usuario) veterinarioSeleccionado;
-        }catch ( Exception e ){
-            return null;
+
+        if(result == null){
+            try{
+                veterinarioSeleccionado = coleccionVeterinario.buscarVeterinario(dni);
+                System.out.println(veterinarioSeleccionado.toString());
+                result = (Usuario) veterinarioSeleccionado;
+            }catch ( Exception e ){
+                return null;
+            }
         }
 
         if ( result == null || !result.getContraseña().equals(password) ){
@@ -57,8 +60,6 @@ public class SGSystem {
 
         return result;
     }
-
-
 
     public Cliente getCliente() {
         return clienteSeleccionado;
