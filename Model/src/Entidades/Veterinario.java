@@ -8,7 +8,7 @@ import Interfaces.Filtrable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Veterinario extends Usuario implements Filtrable<String>, Buscable<String> {
+public class Veterinario extends Usuario implements Filtrable<String>, Buscable<String>, Comparable<Veterinario> {
     private String matricula;
     private List<Turno> turnos=new ArrayList<>();
 
@@ -20,11 +20,16 @@ public class Veterinario extends Usuario implements Filtrable<String>, Buscable<
 
     @Override
     public boolean buscar(String criterio) {
-        return this.matricula.contains(criterio);
+        return this.getDni().contains(criterio);
     }
 
     @Override
     public boolean filtrar(String criterio) {
         return this.getNombre().equalsIgnoreCase(criterio);
+    }
+
+    @Override
+    public int compareTo(Veterinario obj) {
+        return this.getDni().compareTo(obj.getDni());
     }
 }
