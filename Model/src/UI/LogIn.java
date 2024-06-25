@@ -1,6 +1,7 @@
 package UI;
 
 import Entidades.Usuario;
+import Enumeraciones.Rol;
 import gestor.SGSystem;
 
 import javax.swing.*;
@@ -33,11 +34,14 @@ public class LogIn {
                 if (nUser == null){
                     JOptionPane.showMessageDialog( null, "Usuario y/o contraseña incorrectos." );
                 }else {
-
-                    mainPanel.add( new VistaCliente( mainPanel, cardLayout, nUser ).getPanel(), "vistaCliente" );
-                    cardLayout.show( mainPanel, "vistaCliente" );
+                    if(nUser.getRole().equals(Rol.CLIENTE)){
+                        mainPanel.add( new VistaCliente( mainPanel, cardLayout, nUser ).getPanel(), "vistaCliente" );
+                        cardLayout.show( mainPanel, "vistaCliente" );
+                    }else{
+                        mainPanel.add( new VistaVeterinario( mainPanel, cardLayout, nUser ).getPanel(), "vistaVeterinario" );
+                        cardLayout.show( mainPanel, "vistaVeterinario" );
+                    }
                 }
-
             }else {
                 JOptionPane.showMessageDialog( null, "Usuario y contraseña invalidos." );
             }

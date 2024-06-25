@@ -2,9 +2,12 @@ package gestor;
 
 import Colleciones.ColeccionCliente;
 import Colleciones.ColeccionMascota;
+import Colleciones.ColeccionVeterinario;
+import Colleciones.ColeccionMascota;
 import Entidades.Cliente;
 import Entidades.Mascota;
 import Entidades.Usuario;
+import Entidades.Veterinario;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,8 +18,10 @@ public class SGSystem {
 
     private final ColeccionCliente  coleccionCliente = new ColeccionCliente();
     private final ColeccionMascota coleccionMascota = new ColeccionMascota();
+    private final ColeccionVeterinario coleccionVeterinario = new ColeccionVeterinario();
 
     private static Cliente clienteSeleccionado;
+    private static Veterinario veterinarioSeleccionado;
 
     public static SGSystem getGestor() {
         if (gestor == null){
@@ -27,11 +32,20 @@ public class SGSystem {
 
     public Usuario iniciarSesion(String dni, String password ){
         System.out.printf(" User: %s \nPass: %s\n", dni, password);
-        Cliente result = null;
+        Usuario result = null;
 
         try {
-            result =  coleccionCliente.buscarCliente( dni );
-            clienteSeleccionado = result;
+            clienteSeleccionado = coleccionCliente.buscarCliente(dni);
+            if (clienteSeleccionado != null) {
+                result = (Usuario) clienteSeleccionado;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try{
+            veterinarioSeleccionado = coleccionVeterinario.buscarVeterinario(dni);
+            System.out.println(veterinarioSeleccionado.toString());
+            result = (Usuario) veterinarioSeleccionado;
         }catch ( Exception e ){
             return null;
         }
@@ -39,8 +53,9 @@ public class SGSystem {
         if ( result == null || !result.getContraseña().equals(password) ){
             return null;
         }
+        System.out.println(result.toString());
 
-        return (Usuario) result;
+        return result;
     }
 
 
@@ -52,7 +67,14 @@ public class SGSystem {
 
     public Cliente getClienteByUser(Usuario user) {
         try {
-            return coleccionCliente.buscarCliente(user.getDni() );
+            return coleccionCliente.buscarCliente(user.getDni());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    public Veterinario getVeterinarioByUser(Usuario user) {
+        try {
+            return coleccionVeterinario.buscarVeterinario(user.getDni());
         } catch (Exception e) {
             return null;
         }
