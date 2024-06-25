@@ -4,6 +4,7 @@ import Entidades.Cliente;
 import Entidades.Mascota;
 import Enumeraciones.Rol;
 
+import java.util.Date;
 import java.util.List;
 
 public class ColeccionCliente {
@@ -11,8 +12,13 @@ public class ColeccionCliente {
 
     public ColeccionCliente(){
 
-        coleccionCliente.agregar( new Cliente( "ccliente", "1234", "333333" , Rol.CLIENTE , "AA", "BB", null ) );
-        coleccionCliente.agregar( new Cliente( "acliente", "1234", "444444" , Rol.CLIENTE , "BB", "CC", null ) );
+        Cliente c1 = new Cliente("ccliente", "1234", "333333", Rol.CLIENTE, "AA", "BB");
+        c1.agregarMascota( new Mascota("COCO", true,  new Date(), c1.getDni()) );
+        c1.agregarMascota( new Mascota("VICKY", false,  new Date(), c1.getDni()) );
+
+        coleccionCliente.agregar(c1);
+
+        coleccionCliente.agregar( new Cliente( "acliente", "1234", "444444" , Rol.CLIENTE , "BB", "CC"));
 
     }
 

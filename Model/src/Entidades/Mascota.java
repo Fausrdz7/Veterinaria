@@ -10,9 +10,26 @@ import java.util.Date;
 public class Mascota implements Filtrable<String>, Buscable<String> {
     private String nombre;
     private Cliente dueno;
+    private String dniCliente;
     private Date fechaNacimiento;
     private Diagnostico diagnostico;
     private boolean sexo;/// true= masculino && false == femenino
+
+    public Mascota( String nombre, boolean sexo, Date fechaNacimiento, String dniCliente) {
+        this.sexo = sexo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.dniCliente = dniCliente;
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
 
     private ArrayList<Diagnostico> diagnosticos;
 
