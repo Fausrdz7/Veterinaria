@@ -13,7 +13,7 @@ public class Turno implements Filtrable<Mascota>, Buscable<String>{
     private Veterinario veterinario;
     private Mascota mascota;
     private Date horaInic;
-    private  Date horaFinal;
+    private Date horaFinal;
     private boolean comlpetado; ///true fue completado && false no fue completada
 
     public Turno(String observaciones, Veterinario veterinario, Mascota mascota, Date horaInic, Date horaFinal) {

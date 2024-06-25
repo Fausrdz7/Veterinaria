@@ -1,5 +1,7 @@
+import UI.CrearCliente;
 import UI.LogIn;
 import UI.VistaCliente;
+import UI.buscarUsuarioAdmin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +26,8 @@ public class Main {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
+        //mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
+        mainPanel.add( new buscarUsuarioAdmin().getPanel() );
 
         frame.add( mainPanel );
 
