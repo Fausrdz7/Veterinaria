@@ -82,7 +82,7 @@
                               <text value="Hora de inicio:"/>
                             </properties>
                           </component>
-                          <component id="614e3" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                          <component id="614e3" class="javax.swing.JTextField" binding="NewObservacion">
                             <constraints>
                               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
@@ -90,7 +90,7 @@
                             </constraints>
                             <properties/>
                           </component>
-                          <component id="63254" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+                          <component id="63254" class="javax.swing.JTextField" binding="NewHoraInicio">
                             <constraints>
                               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
@@ -98,7 +98,7 @@
                             </constraints>
                             <properties/>
                           </component>
-                          <component id="fb896" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+                          <component id="fb896" class="javax.swing.JTextField" binding="newHoraFinalizacion">
                             <constraints>
                               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
@@ -159,14 +159,6 @@
                           <text value="Horario de finalizacion:"/>
                         </properties>
                       </component>
-                      <component id="b5707" class="javax.swing.JLabel" binding="horarioLlegada">
-                        <constraints>
-                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <text value=""/>
-                        </properties>
-                      </component>
                       <component id="1fc60" class="javax.swing.JLabel">
                         <constraints>
                           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="1" use-parent-layout="false"/>
@@ -181,6 +173,38 @@
                         </constraints>
                         <properties>
                           <text value="Mascota"/>
+                        </properties>
+                      </component>
+                      <component id="6d684" class="javax.swing.JLabel" binding="observacionesMascota">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Label"/>
+                        </properties>
+                      </component>
+                      <component id="e323a" class="javax.swing.JLabel" binding="NombreMascota">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Label"/>
+                        </properties>
+                      </component>
+                      <component id="9fdba" class="javax.swing.JLabel" binding="HoraDeInicio">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Label"/>
+                        </properties>
+                      </component>
+                      <component id="3f718" class="javax.swing.JLabel" binding="HoraDeFinalizacion">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Label"/>
                         </properties>
                       </component>
                     </children>
@@ -210,7 +234,7 @@
                               <text value="Id de turno"/>
                             </properties>
                           </component>
-                          <component id="c2bc5" class="javax.swing.JTextField" binding="inputCodigoReserva">
+                          <component id="c2bc5" class="javax.swing.JTextField" binding="InpuCodigoTurno">
                             <constraints>
                               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>

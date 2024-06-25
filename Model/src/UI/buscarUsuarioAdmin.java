@@ -5,11 +5,14 @@ import javax.swing.*;
 public class buscarUsuarioAdmin {
     private JPanel panel1;
     private JTabbedPane tabbedPane1;
-    private JTextField textField1;
-    private JTextField textField3;
-    private JTextField textField4;
+    private JTextField NewObservacion;
+    private JTextField NewHoraInicio;
+    private JTextField newHoraFinalizacion;
     private JButton confirmarCambiosButton;
-    private JLabel horarioLlegada;
-    private JTextField inputCodigoReserva;
+    private JTextField InpuCodigoTurno;
     private JButton botonBuscarReserva;
+    private JLabel observacionesMascota;
+    private JLabel NombreMascota;
+    private JLabel HoraDeInicio;
+    private JLabel HoraDeFinalizacion;
 }
