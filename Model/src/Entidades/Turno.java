@@ -16,14 +16,14 @@ public class Turno implements Filtrable<Mascota>, Buscable<String>{
     private  Date horaFinal;
     private boolean comlpetado; ///true fue completado && false no fue completada
 
-    public Turno(String observaciones, Veterinario veterinario, Mascota mascota, Date horaInic, Date horaFinal, String idTurno) {
+    public Turno(String observaciones, Veterinario veterinario, Mascota mascota, Date horaInic, Date horaFinal) {
         this.observaciones = observaciones;
         this.veterinario = veterinario;
         this.mascota = mascota;
         this.horaInic = horaInic;
         this.horaFinal = horaFinal;
         this.comlpetado = false;
-        this.idTurno= idTurno;
+        this.idTurno = String.format( "%s-%s", veterinario.getApellido(), mascota.getNombre() ) ;
 
     }
 

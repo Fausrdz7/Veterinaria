@@ -14,6 +14,7 @@ public class VistaCliente {
     private JPanel panel;
     private JLabel userData;
     private JPanel listaMascotas;
+    private JPanel crearClientePanel;
     private SGSystem gestor = SGSystem.getGestor();
     private JPanel mainPanel;
     private CardLayout cardLayout;
@@ -29,6 +30,11 @@ public class VistaCliente {
         userData.setText(String.format("Bienvenido %s -  DNI: %s", cliente.getNombre(), cliente.getDni()));
 
         mascotas = gestor.getMascotasByClient(user.getDni());
+
+        crearClientePanel.setLayout(new GridLayout());
+        //crearClientePanel.add(  new CrearCliente().getPanel() );
+        crearClientePanel.add( new buscarUsuarioAdmin().getPanel() );
+
         listarMascotas();
     }
 

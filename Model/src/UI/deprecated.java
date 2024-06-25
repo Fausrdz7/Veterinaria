@@ -4,7 +4,7 @@ import gestor.SGSystem;
 
 import javax.swing.*;
 
-public class VistaAdministrador {
+public class deprecated {
     private SGSystem gestor = SGSystem.getGestor();
 
     private JTextField observaciones;
@@ -18,7 +18,7 @@ public class VistaAdministrador {
     private JTextField textField3;
     private JTextField textField4;
 
-    public VistaAdministrador(SGSystem gestor, JTextField observaciones, JTextField mascota, JTextField horaDeInicio, JTextField horaDeFinalizacion, JButton confirmarCambiosButton, JTabbedPane tabbedPane1) {
+    public deprecated(SGSystem gestor, JTextField observaciones, JTextField mascota, JTextField horaDeInicio, JTextField horaDeFinalizacion, JButton confirmarCambiosButton, JTabbedPane tabbedPane1) {
         this.gestor = gestor;
         this.observaciones = observaciones;
         this.mascota = mascota;
