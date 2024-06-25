@@ -13,7 +13,7 @@ public class Turno implements Filtrable<Mascota>, Buscable<String>{
     private Veterinario veterinario;
     private Mascota mascota;
     private Date horaInic;
-    private Date horaFinal;
+    private  Date horaFinal;
     private boolean comlpetado; ///true fue completado && false no fue completada
 
     public Turno(String observaciones, Veterinario veterinario, Mascota mascota, Date horaInic, Date horaFinal) {
@@ -57,5 +57,49 @@ public class Turno implements Filtrable<Mascota>, Buscable<String>{
     @Override
     public boolean filtrar(Mascota criterio) {
         return this.mascota.equals(criterio);
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public String getIdTurno() {
+        return idTurno;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
+    public Mascota getMascota() {
+        return mascota;
+    }
+
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+    }
+
+    public Date getHoraInic() {
+        return horaInic;
+    }
+
+    public void setHoraInic(Date horaInic) {
+        this.horaInic = horaInic;
+    }
+
+    public Date getHoraFinal() {
+        return horaFinal;
+    }
+
+    public void setHoraFinal(Date horaFinal) {
+        this.horaFinal = horaFinal;
+    }
+
+    public boolean isComlpetado() {
+        return comlpetado;
     }
 }
