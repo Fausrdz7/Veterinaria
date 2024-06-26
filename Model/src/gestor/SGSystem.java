@@ -4,17 +4,18 @@ import Colleciones.ColeccionCliente;
 import Colleciones.ColeccionMascota;
 import Colleciones.ColeccionVeterinario;
 import Colleciones.ColeccionMascota;
-import Entidades.Cliente;
-import Entidades.Mascota;
-import Entidades.Usuario;
-import Entidades.Veterinario;
+import Entidades.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class SGSystem {
     private static SGSystem gestor;
+
+    private static JFrame appFrame;
 
     private final ColeccionCliente  coleccionCliente = new ColeccionCliente();
     private final ColeccionMascota coleccionMascota = new ColeccionMascota();
@@ -28,6 +29,14 @@ public class SGSystem {
             gestor = new SGSystem();
         }
         return gestor;
+    }
+
+    public static JFrame getAppFrame() {
+        return appFrame;
+    }
+
+    public static void setAppFrame(JFrame appFrame) {
+        SGSystem.appFrame = appFrame;
     }
 
     public Usuario iniciarSesion(String dni, String password ){
@@ -88,4 +97,5 @@ public class SGSystem {
             return null;
         }
     }
+
 }

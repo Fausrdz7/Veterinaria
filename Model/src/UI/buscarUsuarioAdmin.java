@@ -20,6 +20,7 @@ public class buscarUsuarioAdmin {
     private JLabel NombreMascota;
     private JLabel HoraDeInicio;
     private JLabel HoraDeFinalizacion;
+    private JTextField textField1;
 
     public  buscarUsuarioAdmin(){
 

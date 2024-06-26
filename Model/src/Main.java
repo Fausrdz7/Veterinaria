@@ -1,7 +1,5 @@
-import UI.CrearCliente;
-import UI.LogIn;
-import UI.VistaCliente;
-import UI.buscarUsuarioAdmin;
+import UI.*;
+import gestor.SGSystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,9 +23,10 @@ public class Main {
 
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
+        SGSystem.setAppFrame( frame );
 
-        //mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
-        mainPanel.add( new CrearCliente().getPanel() );
+        mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
+
 
         frame.add( mainPanel );
 
@@ -35,6 +34,8 @@ public class Main {
 
         frame.pack();
         frame.setVisible(true);
+
+
 
     }
 

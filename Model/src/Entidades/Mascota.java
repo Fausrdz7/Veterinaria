@@ -22,6 +22,10 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
         this.nombre = nombre;
     }
 
+    public String getDniCliente() {
+        return dniCliente;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -41,5 +45,21 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
     @Override
     public boolean filtrar(String dni) {
         return dni.equals( dueno.getDni() );
+    }
+
+    public boolean getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(boolean sexo) {
+        this.sexo = sexo;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }
