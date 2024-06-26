@@ -3,6 +3,7 @@ package Colleciones;
 import Entidades.Administrador;
 import Entidades.Cliente;
 
+import java.io.*;
 import java.util.List;
 
 public class ColeccionAdministrador {
@@ -25,6 +26,19 @@ public class ColeccionAdministrador {
         return coleccionAdministrador.eliminar(administrador);
     }
 
+    public void guardarAdministradores(String fileName) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(coleccionAdministrador);
+        }
+    }
+
+    public void cargarAdministradores(String fileName) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            List<Administrador> administradores = (List<Administrador>) ois.readObject();
+            coleccionAdministrador.clear();
+            coleccionAdministrador.addAll(administradores);
+        }
+    }
 
 
 

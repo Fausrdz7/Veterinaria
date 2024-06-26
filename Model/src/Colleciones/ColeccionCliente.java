@@ -4,6 +4,7 @@ import Entidades.Cliente;
 import Entidades.Mascota;
 import Enumeraciones.Rol;
 
+import java.io.*;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +42,21 @@ public class ColeccionCliente {
     public boolean eliminarCliente(String dni) throws Exception {
         Cliente vuelo = buscarCliente(dni);
         return coleccionCliente.eliminar(vuelo);
+    }
+
+    public void guardarClientes(String fileName) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(coleccionCliente);
+        }
+    }
+
+    // Método para cargar clientes desde un archivo
+    public void cargarClientes(String fileName) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            List<Cliente> clientes = (List<Cliente>) ois.readObject();
+            coleccionCliente.clear();
+            coleccionCliente.addAll(clientes);
+        }
     }
 
 }

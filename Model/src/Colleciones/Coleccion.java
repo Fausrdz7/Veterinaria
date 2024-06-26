@@ -39,4 +39,12 @@ public class Coleccion<T extends Filtrable<I> & Buscable<B>, B, I> {
         return new ArrayList<>(elementos);
     }
 
+
+    public void clear() {
+        elementos.clear();
+    }
+
+    public void addAll(List<T> list) {
+        elementos.addAll(list);
+    }
 }

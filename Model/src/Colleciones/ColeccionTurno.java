@@ -47,15 +47,12 @@ public class ColeccionTurno {
         throw new Exception("Turno no encontrado");
     }
 
-    // Método para guardar turnos en un archivo
     public void guardarTurnos(String fileName) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
             oos.writeObject(coleccionTurno);
         }
     }
 
-    // Método para cargar turnos desde un archivo
-    @SuppressWarnings("unchecked")
     public void cargarTurnos(String fileName) throws IOException, ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             List<Turno> turnos = (List<Turno>) ois.readObject();
@@ -87,4 +84,5 @@ public class ColeccionTurno {
     public List<Turno> obtenerTurnos() {
         return new ArrayList<>(coleccionTurno);
     }
+
 }
