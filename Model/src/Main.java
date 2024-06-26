@@ -1,3 +1,4 @@
+import Entidades.Usuario;
 import UI.*;
 import gestor.SGSystem;
 

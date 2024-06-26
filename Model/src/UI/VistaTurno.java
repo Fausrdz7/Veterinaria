@@ -3,6 +3,8 @@ package UI;
 import gestor.SGSystem;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VistaTurno {
     private JPanel panel;
@@ -28,6 +30,12 @@ public class VistaTurno {
             System.out.println("Esto es un boton.");
         } );
 
+        confirmarCambiosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Actualiza un turno, SGSystem.actualizarTurno( Cliente, fecha nueva, mascota )
+            }
+        });
     }
 
     public JPanel getPanel(){

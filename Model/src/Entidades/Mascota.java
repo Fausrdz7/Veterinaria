@@ -15,7 +15,20 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
     private Diagnostico diagnostico;
     private boolean sexo;/// true= masculino && false == femenino
 
-    public Mascota( String nombre, boolean sexo, Date fechaNacimiento, String dniCliente) {
+    @Override
+    public String toString() {
+        return "Mascota{" +
+                "nombre='" + nombre + '\'' +
+                ", dueno=" + dueno +
+                ", dniCliente='" + dniCliente + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", diagnostico=" + diagnostico +
+                ", sexo=" + sexo +
+                ", diagnosticos=" + diagnosticos +
+                '}';
+    }
+
+    public Mascota(String nombre, boolean sexo, Date fechaNacimiento, String dniCliente) {
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.dniCliente = dniCliente;

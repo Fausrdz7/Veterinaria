@@ -1,6 +1,8 @@
 package UI;
 
 import Entidades.Mascota;
+import Interfaces.DialogCallback;
+import gestor.SGSystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,9 +24,10 @@ public class CrearMascota extends JDialog {
     private Mascota nuevaMascota;
 
     public CrearMascota(JFrame parent) {
-        super(parent, "Crear Nueva Mascota", true); // true indica que es modal
+        init(parent);
+    }
 
-        // Inicialización de componentes
+    private void init(JFrame parent) {// Inicialización de componentes
 
 
         sexoInput.addItem( "MACHO" );
@@ -49,9 +52,18 @@ public class CrearMascota extends JDialog {
 
         // Listener para el botón cancelar
         buttonCancel.addActionListener( e->{
-                mascotaCreada = false;
-                dispose(); // Cierra el diálogo
+            mascotaCreada = false;
+            dispose(); // Cierra el diálogo
         });
+
+        //Listener de crear
+        buttonOK.addActionListener( e->{
+            mascotaCreada = true;
+            agregarMascota();
+            SGSystem.getVistaCliente().actualizarUI();
+            dispose(); // Cierra el diálogo
+        });
+
 
         // Configuración del diálogo
         add(contentPane, BorderLayout.CENTER);
@@ -61,7 +73,9 @@ public class CrearMascota extends JDialog {
     }
 
     public CrearMascota(JFrame parent, Mascota mascota) {
-        super(parent, "Editar Nueva Mascota", true); // true indica que es modal
+        super(parent, "Editar Nueva Mascota", true);
+        buttonOK.setText( "Actualizar" );
+
 
         nombreInput.setText( mascota.getNombre() );
 
@@ -100,6 +114,22 @@ public class CrearMascota extends JDialog {
             dispose(); // Cierra el diálogo
         });
 
+        buttonOK.addActionListener( e->{
+            mascotaCreada = true;
+            //actualizar una mascota
+            dispose(); // Cierra el diálogo
+
+        });
+
+        borrarButton.addActionListener( e->{
+            mascotaCreada = true;
+            //Borra una mascota
+            dispose(); // Cierra el diálogo
+
+        });
+
+
+
         // Configuración del diálogo
         add(contentPane, BorderLayout.CENTER);
         add(buttonsPanel, BorderLayout.SOUTH);
@@ -107,7 +137,8 @@ public class CrearMascota extends JDialog {
         setLocationRelativeTo(parent);
     }
 
-    private void crearMascota() {
+
+    private void agregarMascota() {
         String nombre = nombreInput.getText().trim();
         Date fechaNacimiento = (Date) fechaNacimientoSpinner.getValue();
 
@@ -118,12 +149,16 @@ public class CrearMascota extends JDialog {
         }
 
         // Crear la instancia de Mascota
-        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, ""); // Por defecto el sexo masculino
+        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, SGSystem.getGestor().getCliente().getDni()); // Por defecto el sexo masculino
 
         //TODO: Hay que agregar la mascota al objeto clienteSeleccionado dentro del Gestor
 
         // Indicar que la mascota ha sido creada exitosamente
         mascotaCreada = true;
+
+        SGSystem.getGestor().agregarMascota( nuevaMascota );
+        System.out.println( nuevaMascota.toString() );
+
 
         // Cerrar el diálogo
         dispose();
@@ -144,4 +179,5 @@ public class CrearMascota extends JDialog {
     public Mascota getNuevaMascota() {
         return nuevaMascota;
     }
+
 }

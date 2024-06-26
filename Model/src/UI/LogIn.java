@@ -19,6 +19,8 @@ public class LogIn {
     private JPanel mainPanel;
     private CardLayout cardLayout;
 
+    private VistaCliente vistaCliente;
+
 
 
     public LogIn(JPanel mainPanel, CardLayout cardLayout) {
@@ -35,7 +37,9 @@ public class LogIn {
                     JOptionPane.showMessageDialog( null, "Usuario y/o contraseña incorrectos." );
                 }else {
                     if(nUser.getRole().equals(Rol.CLIENTE)){
-                        mainPanel.add( new VistaCliente( mainPanel, cardLayout, nUser ).getPanel(), "vistaCliente" );
+                        SGSystem.setVistaCliente( new VistaCliente( mainPanel, cardLayout, nUser ) );
+                        mainPanel.add( SGSystem.getVistaCliente().getPanel(), "vistaCliente" );
+
                         cardLayout.show( mainPanel, "vistaCliente" );
                     }else{
                         mainPanel.add( new VistaVeterinario( mainPanel, cardLayout, nUser ).getPanel(), "vistaVeterinario" );

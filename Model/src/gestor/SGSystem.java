@@ -4,6 +4,7 @@ import Colleciones.*;
 import Colleciones.ColeccionMascota;
 import Colleciones.ColeccionVeterinario;
 import Entidades.*;
+import UI.VistaCliente;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class SGSystem {
     private static SGSystem gestor;
 
     private static JFrame appFrame;
+    private static VistaCliente vistaCliente;
 
     private final ColeccionCliente  coleccionCliente = new ColeccionCliente();
     private final ColeccionMascota coleccionMascota = new ColeccionMascota();
@@ -36,6 +38,14 @@ public class SGSystem {
 
     public static void setAppFrame(JFrame appFrame) {
         SGSystem.appFrame = appFrame;
+    }
+
+    public static VistaCliente getVistaCliente() {
+        return vistaCliente;
+    }
+
+    public static void setVistaCliente(VistaCliente vistaCliente) {
+        SGSystem.vistaCliente = vistaCliente;
     }
 
     public Usuario iniciarSesion(String dni, String password ){
@@ -108,4 +118,11 @@ public class SGSystem {
         return turnosCliente;
     }
 
+    public void agregarMascota(Mascota nuevaMascota) {
+        getCliente().agregarMascota( nuevaMascota );
+    }
+
+    public void updateVistaCliente(){
+
+    }
 }
