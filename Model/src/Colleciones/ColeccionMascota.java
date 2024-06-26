@@ -4,6 +4,7 @@ import Entidades.Administrador;
 import Entidades.Mascota;
 import Entidades.Veterinario;
 
+import java.io.*;
 import java.util.List;
 
 public class ColeccionMascota {
@@ -28,5 +29,19 @@ public class ColeccionMascota {
 
     public List<Mascota> getMascotasByClient(String dni) {
         return coleccionMascota.filtrar(dni);
+    }
+
+    public void guardarMascotas(String fileName) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(coleccionMascota);
+        }
+    }
+
+    public void cargarMascotas(String fileName) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            List<Mascota> mascotas = (List<Mascota>) ois.readObject();
+            coleccionMascota.clear();
+            coleccionMascota.addAll(mascotas);
+        }
     }
 }
