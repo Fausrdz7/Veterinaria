@@ -21,6 +21,9 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
         SGSystem.setAppFrame( frame );
