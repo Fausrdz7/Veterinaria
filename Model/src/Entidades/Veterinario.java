@@ -12,10 +12,9 @@ public class Veterinario extends Usuario implements Filtrable<String>, Buscable<
     private String matricula;
     private List<Turno> turnos=new ArrayList<>();
 
-    public Veterinario(String nombreUsuario, String contraseña, String dni, Rol role, String nombre, String apellido, String matricula,Turno turno) {
-        super(nombreUsuario, contraseña, dni, role, nombre, apellido);
+    public Veterinario(String contraseña, String dni, Rol role, String nombre, String apellido, String matricula) {
+        super(contraseña, dni, role, nombre, apellido);
         this.matricula = matricula;
-        this.turnos.add(turno);
     }
 
     @Override

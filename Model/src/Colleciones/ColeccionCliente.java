@@ -13,13 +13,13 @@ public class ColeccionCliente {
 
     public ColeccionCliente(){
 
-        Cliente c1 = new Cliente("ccliente", "1234", "333333", Rol.CLIENTE, "AA", "BB");
+        Cliente c1 = new Cliente( "1234", "333333", Rol.CLIENTE, "AA", "BB");
         c1.agregarMascota( new Mascota("COCO", true,  new Date(), c1.getDni()) );
         c1.agregarMascota( new Mascota("VICKY", false,  new Date(), c1.getDni()) );
 
         coleccionCliente.agregar(c1);
 
-        coleccionCliente.agregar( new Cliente( "acliente", "1234", "444444" , Rol.CLIENTE , "BB", "CC"));
+        coleccionCliente.agregar( new Cliente( "1234", "444444" , Rol.CLIENTE , "BB", "CC"));
 
     }
 
