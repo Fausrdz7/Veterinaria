@@ -48,7 +48,7 @@ public class SGSystem {
                 result = (Usuario) clienteSeleccionado;
             }
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         if(result == null){

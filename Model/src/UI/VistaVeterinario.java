@@ -24,16 +24,9 @@ public class VistaVeterinario {
 
     public VistaVeterinario(JPanel mainPanel, CardLayout cardLayout, Usuario user ){
         veterinario = gestor.getVeterinarioByUser(user);
-        userData.setText( veterinario.toString() );
-        userData.setText( String.format(  "Bienvenido %s -  DNI: %s", veterinario.getNombre(), veterinario.getDni()  ) );
 
         this.mainPanel = mainPanel;
         this.cardLayout = cardLayout;
-
-
-        cambiarVistaButton.addActionListener( e -> {
-            cambiarAVistaNueva();
-        } );
 
     }
 
