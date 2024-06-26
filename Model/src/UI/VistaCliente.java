@@ -2,6 +2,7 @@ package UI;
 
 import Entidades.Cliente;
 import Entidades.Mascota;
+import Entidades.Turno;
 import Entidades.Usuario;
 import Interfaces.DialogCallback;
 import gestor.SGSystem;
@@ -26,6 +27,7 @@ public class VistaCliente implements DialogCallback {
 
     private Cliente cliente;
     private List<Mascota> mascotas;
+    private List<Turno> turnos;
 
     public VistaCliente(JPanel mainPanel, CardLayout cardLayout, Usuario user) {
         this.mainPanel = mainPanel;
@@ -33,6 +35,9 @@ public class VistaCliente implements DialogCallback {
 
         cliente = gestor.getClienteByUser(user);
         userData.setText(String.format("Bienvenido %s -  DNI: %s", cliente.getNombre(), cliente.getDni()));
+
+        listaTurnos.setLayout(new GridLayout(2, 2, 10, 10)); // Filas: mascotas.size(), Columnas: 2
+        listaTurnos.add( new VistaTurno().getPanel() );
 
         mascotas = gestor.getMascotasByClient(user.getDni());
 
