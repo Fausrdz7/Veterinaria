@@ -6,8 +6,8 @@ import Interfaces.Filtrable;
 
 public class Administrador extends Usuario implements Filtrable<String>, Buscable<String> {
 
-    public Administrador(String nombreUsuario, String contraseña, String dni, Rol role, String nombre, String apellido) {
-        super(nombreUsuario, contraseña, dni, role, nombre, apellido);
+    public Administrador(String contraseña, String dni, Rol role, String nombre, String apellido) {
+        super(contraseña, dni, role, nombre, apellido);
     }
 
     @Override

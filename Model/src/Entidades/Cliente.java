@@ -13,8 +13,8 @@ import java.util.List;
 public class Cliente extends Usuario implements Filtrable<String>, Buscable<String>, Comparable<Cliente> {
     private List <Mascota>mascotas = new ArrayList<>() ;
 
-    public Cliente(String nombreUsuario, String contraseña, String dni, Rol rol, String nombre, String apellido) {
-        super(nombreUsuario, contraseña, dni, rol, nombre, apellido);
+    public Cliente(String contraseña, String dni, Rol rol, String nombre, String apellido) {
+        super(contraseña, dni, rol, nombre, apellido);
     }
 
 

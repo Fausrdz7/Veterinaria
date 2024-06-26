@@ -2,12 +2,17 @@ package Colleciones;
 
 import Entidades.Administrador;
 import Entidades.Cliente;
+import Enumeraciones.Rol;
 
 import java.io.*;
 import java.util.List;
 
 public class ColeccionAdministrador {
     private final Coleccion<Administrador,String,String>coleccionAdministrador = new Coleccion<>();
+
+    public ColeccionAdministrador() {
+        coleccionAdministrador.agregar(new Administrador("1234","111111", Rol.ADMIN,"Juan", "Perez"));
+    }
 
     public boolean agregarAdministrador(Administrador administrador) {
         return coleccionAdministrador.agregar(administrador);

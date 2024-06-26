@@ -3,7 +3,7 @@ package Entidades;
 import Enumeraciones.Rol;
 
 public class Usuario {
-    private String nombreUsuario;
+
     private String contraseña;
     private String dni;
     private Rol role;
@@ -12,8 +12,7 @@ public class Usuario {
     private boolean estado; /// true esta dado de alta, false esta dado de baja.
 
 
-    public Usuario(String nombreUsuario, String contraseña, String dni, Rol role, String nombre, String apellido) {
-        this.nombreUsuario = nombreUsuario;
+    public Usuario(String contraseña, String dni, Rol role, String nombre, String apellido) {
         this.contraseña = contraseña;
         this.dni = dni;
         this.role = role;
@@ -21,14 +20,6 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
-
-
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
 
     public String getDni() {
         return dni;
@@ -73,7 +64,6 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "nombreUsuario='" + nombreUsuario + '\'' +
                 ", contraseña='" + contraseña + '\'' +
                 ", dni='" + dni + '\'' +
                 ", role=" + role +
