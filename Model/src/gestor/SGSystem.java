@@ -3,13 +3,10 @@ package gestor;
 import Colleciones.*;
 import Colleciones.ColeccionMascota;
 import Colleciones.ColeccionVeterinario;
-import Colleciones.ColeccionMascota;
-import Entidades.*;
 import Entidades.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -104,9 +101,9 @@ public class SGSystem {
         List<Turno> turnosCliente = new ArrayList<>();
         Date fechaActual = new Date();
         for (Turno turno : coleccionTurno.obtenerTurnos()) {
-            if (turno.getMascota().getDueno().equals(cliente) && !turno.getHoraInic().before(fechaActual)) {
-                turnosCliente.add(turno);
-            }
+//            if (turno.getMascota().getDniCliente().equals(cliente.getDni()) && !turno.getHoraInic().before(fechaActual)) {
+//                turnosCliente.add(turno);
+//            }
         }
         return turnosCliente;
     }

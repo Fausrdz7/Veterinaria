@@ -27,7 +27,7 @@ public class Main {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        SGSystem gestor = new SGSystem.setAppFrame( frame );
+        SGSystem.setAppFrame(frame);
 
         mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
         frame.add( mainPanel );

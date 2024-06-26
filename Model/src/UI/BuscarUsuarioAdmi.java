@@ -2,7 +2,7 @@ package UI;
 
 import javax.swing.*;
 
-public class BuscarUsuarioAdmin {
+public class BuscarUsuarioAdmi {
     private JPanel panel1;
     private JTextField InputDniUsuario;
     private  JButton botonBuscarUsuario;
