@@ -21,6 +21,7 @@ public class SGSystem {
     private final ColeccionMascota coleccionMascota = new ColeccionMascota();
     private final ColeccionVeterinario coleccionVeterinario = new ColeccionVeterinario();
     private final ColeccionTurno coleccionTurno = new ColeccionTurno();
+    private final ColeccionAdministrador coleccionAdministrador = new ColeccionAdministrador();
 
     private static Cliente clienteSeleccionado;
     private static Veterinario veterinarioSeleccionado;
@@ -98,6 +99,13 @@ public class SGSystem {
             return null;
         }
     }
+    public Administrador getAdminByUser(Usuario user) {
+        try {
+            return coleccionAdministrador.buscarAdministrador(user.getDni());
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     public List<Mascota> getMascotasByClient(String dni ){
         try {
@@ -106,6 +114,8 @@ public class SGSystem {
             return null;
         }
     }
+
+
 
     public List<Turno> listarTurnos(Cliente cliente) {
         List<Turno> turnosCliente = new ArrayList<>();
@@ -118,6 +128,33 @@ public class SGSystem {
         return turnosCliente;
     }
 
+    public Turno crearTurno(String dniCli, String dniVet, Mascota mascota, Date horaInicio, Date horaFinalizacion) {
+        try {
+            Cliente cliente = coleccionCliente.buscarCliente(dniCli);
+            Veterinario veterinario = coleccionVeterinario.buscarVeterinario(dniVet);
+
+            if (cliente == null || veterinario == null) {
+                System.out.println("Cliente o veterinario no encontrado");
+                return null;
+            }
+
+
+            Turno nuevoTurno = new Turno(null, veterinario, mascota, horaInicio, horaFinalizacion);
+
+            return nuevoTurno;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void completarTurno(String idTurno, String observaciones){
+        Turno turno = coleccionTurno.buscarTurno(idTurno);
+        turno.setComlpetado(true);
+        turno.setObservaciones(observaciones);
+    }
+
     public void agregarMascota(Mascota nuevaMascota) {
         getCliente().agregarMascota( nuevaMascota );
     }
@@ -126,7 +163,4 @@ public class SGSystem {
         getCliente().eliminarMascotaPorNombre(  nombre  );
     }
 
-    public void updateVistaCliente(){
-
-    }
 }

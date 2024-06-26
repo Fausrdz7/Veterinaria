@@ -34,16 +34,18 @@ public class LogIn {
                 Usuario nUser = gestor.iniciarSesion(dniInput.getText(), new String( passwordInput.getPassword() ) );
 
                 if (nUser == null){
-                    JOptionPane.showMessageDialog( null, "Usuario y/o contraseña incorrectos." );
-                }else {
+                    JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
+                } else {
                     if(nUser.getRole().equals(Rol.CLIENTE)){
-                        SGSystem.setVistaCliente( new VistaCliente( mainPanel, cardLayout, nUser ) );
-                        mainPanel.add( SGSystem.getVistaCliente().getPanel(), "vistaCliente" );
-
-                        cardLayout.show( mainPanel, "vistaCliente" );
-                    }else{
-                        mainPanel.add( new VistaVeterinario( mainPanel, cardLayout, nUser ).getPanel(), "vistaVeterinario" );
-                        cardLayout.show( mainPanel, "vistaVeterinario" );
+                        SGSystem.setVistaCliente(new VistaCliente(mainPanel, cardLayout, nUser));
+                        mainPanel.add(SGSystem.getVistaCliente().getPanel(), "vistaCliente");
+                        cardLayout.show(mainPanel, "vistaCliente");
+                    } else if (nUser.getRole().equals(Rol.VETERINARIO)) {
+                        mainPanel.add(new VistaVeterinario(mainPanel, cardLayout, nUser).getPanel(), "vistaVeterinario");
+                        cardLayout.show(mainPanel, "vistaVeterinario");
+                    } else if (nUser.getRole().equals(Rol.ADMIN)) {
+                        mainPanel.add(new VistaAdministrador(mainPanel, cardLayout, nUser).getPanel(), "vistaAdministrador");
+                        cardLayout.show(mainPanel, "vistaAdministrador");
                     }
                 }
             }else {

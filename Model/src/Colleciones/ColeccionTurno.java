@@ -1,5 +1,6 @@
 package Colleciones;
 
+import Entidades.Cliente;
 import Entidades.Turno;
 import Entidades.Veterinario;
 import Entidades.Mascota;
@@ -61,7 +62,6 @@ public class ColeccionTurno {
         }
     }
 
-    // Método para crear y agregar un turno si no hay superposición de horarios
     public void crearYAgregarTurno(String observaciones, Veterinario veterinario, Mascota mascota, Date horaInicio, Date horaFinalizacion) {
         for (Turno turno : coleccionTurno) {
             if (turno.getVeterinario().equals(veterinario) &&
@@ -80,6 +80,7 @@ public class ColeccionTurno {
         coleccionTurno.add(nuevoTurno);
         System.out.println("Turno agregado exitosamente.");
     }
+
 
     public List<Turno> obtenerTurnos() {
         return new ArrayList<>(coleccionTurno);
