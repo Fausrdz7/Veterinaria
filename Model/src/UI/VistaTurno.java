@@ -4,7 +4,7 @@ import gestor.SGSystem;
 
 import javax.swing.*;
 
-public class buscarUsuarioAdmin {
+public class VistaTurno {
     private JPanel panel;
     private SGSystem gestor = SGSystem.getGestor();
 
@@ -21,7 +21,7 @@ public class buscarUsuarioAdmin {
     private JLabel HoraDeInicio;
     private JLabel HoraDeFinalizacion;
 
-    public  buscarUsuarioAdmin(){
+    public VistaTurno(){
 
         botonBuscarReserva.addActionListener( e ->{
             System.out.println("Esto es un boton.");
