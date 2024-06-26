@@ -83,4 +83,8 @@ public class ColeccionTurno {
         coleccionTurno.add(nuevoTurno);
         System.out.println("Turno agregado exitosamente.");
     }
+
+    public List<Turno> obtenerTurnos() {
+        return new ArrayList<>(coleccionTurno);
+    }
 }

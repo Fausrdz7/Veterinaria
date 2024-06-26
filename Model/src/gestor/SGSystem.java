@@ -1,16 +1,12 @@
 package gestor;
 
-import Colleciones.ColeccionCliente;
+import Colleciones.*;
 import Colleciones.ColeccionMascota;
-import Colleciones.ColeccionVeterinario;
-import Colleciones.ColeccionMascota;
-import Entidades.Cliente;
-import Entidades.Mascota;
-import Entidades.Usuario;
-import Entidades.Veterinario;
+import Entidades.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class SGSystem {
@@ -19,6 +15,7 @@ public class SGSystem {
     private final ColeccionCliente  coleccionCliente = new ColeccionCliente();
     private final ColeccionMascota coleccionMascota = new ColeccionMascota();
     private final ColeccionVeterinario coleccionVeterinario = new ColeccionVeterinario();
+    private final ColeccionTurno coleccionTurno = new ColeccionTurno();
 
     private static Cliente clienteSeleccionado;
     private static Veterinario veterinarioSeleccionado;
@@ -87,5 +84,16 @@ public class SGSystem {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public List<Turno> listarTurnos(Cliente cliente) {
+        List<Turno> turnosCliente = new ArrayList<>();
+        Date fechaActual = new Date();
+        for (Turno turno : coleccionTurno.obtenerTurnos()) {
+            if (turno.getMascota().getDueno().equals(cliente) && !turno.getHoraInic().before(fechaActual)) {
+                turnosCliente.add(turno);
+            }
+        }
+        return turnosCliente;
     }
 }
