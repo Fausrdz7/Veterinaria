@@ -43,10 +43,11 @@ public class LogIn {
                     } else if (nUser.getRole().equals(Rol.VETERINARIO)) {
                         mainPanel.add(new VistaVeterinario(mainPanel, cardLayout, nUser).getPanel(), "vistaVeterinario");
                         cardLayout.show(mainPanel, "vistaVeterinario");
-                    } else if (nUser.getRole().equals(Rol.ADMIN)) {
-                        mainPanel.add(new VistaAdministrador(mainPanel, cardLayout, nUser).getPanel(), "vistaAdministrador");
-                        cardLayout.show(mainPanel, "vistaAdministrador");
-                    }
+                    } 
+//                    else if (nUser.getRole().equals(Rol.ADMIN)) {
+//                        mainPanel.add(new VistaAdministrador(mainPanel, cardLayout, nUser).getPanel(), "vistaAdministrador");
+//                        cardLayout.show(mainPanel, "vistaAdministrador");
+//                    }
                 }
             }else {
                 JOptionPane.showMessageDialog( null, "Usuario y contraseña invalidos." );

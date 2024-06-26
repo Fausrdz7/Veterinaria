@@ -149,6 +149,21 @@ public class SGSystem {
         }
     }
 
+    public void agregarTurnosMascota(Mascota mascota,List<Turno> turnos) {
+
+        for (Turno turno : turnos){
+            if (mascota.equals(turno.getMascota())) {
+                turnosMascota(turno);
+            }
+        }
+    }
+
+    public List<Turno>turnosMascota(Turno turno){
+        List<Turno>turnos=new ArrayList<>();
+        turnos.add(turno);
+        return turnos;
+    }
+
     public void completarTurno(String idTurno, String observaciones){
         Turno turno = coleccionTurno.buscarTurno(idTurno);
         turno.setComlpetado(true);
