@@ -2,7 +2,7 @@ package UI;
 
 import Entidades.Usuario;
 import Entidades.Veterinario;
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class VistaVeterinario {
     private JButton botonBuscarReserva;
     private JTextField DiagnosticoTextField;
     private JButton confirmarDiagnosticoYDarButton;
-    private SGSystem gestor = SGSystem.getGestor();
+    private VetGestor gestor = VetGestor.getGestor();
     private static Veterinario veterinario;
     private JPanel mainPanel;
     private CardLayout cardLayout;

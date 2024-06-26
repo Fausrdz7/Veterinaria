@@ -1,8 +1,7 @@
 package UI;
 
 import Entidades.Mascota;
-import Interfaces.DialogCallback;
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +59,7 @@ public class CrearMascota extends JDialog {
         buttonOK.addActionListener( e->{
             mascotaCreada = true;
             agregarMascota();
-            SGSystem.getVistaCliente().actualizarUI();
+            VetGestor.getVistaCliente().actualizarUI();
             dispose(); // Cierra el diálogo
         });
 
@@ -113,15 +112,15 @@ public class CrearMascota extends JDialog {
         // Listener para el botón cancelar
         buttonCancel.addActionListener( e->{
             mascotaCreada = false;
-            SGSystem.getGestor().borrarMascota( mascota.getNombre() );
-            SGSystem.getVistaCliente().actualizarUI();
+            VetGestor.getGestor().borrarMascota( mascota.getNombre() );
+            VetGestor.getVistaCliente().actualizarUI();
             dispose(); // Cierra el diálogo
         });
 
         buttonOK.addActionListener( e->{
             mascotaCreada = true;
             editarMascota(mascota);
-            SGSystem.getVistaCliente().actualizarUI();
+            VetGestor.getVistaCliente().actualizarUI();
 
             dispose(); // Cierra el diálogo
 
@@ -129,8 +128,8 @@ public class CrearMascota extends JDialog {
 
         borrarButton.addActionListener( e->{
             mascotaCreada = true;
-            SGSystem.getGestor().getCliente().eliminarMascotaPorNombre(  mascota.getNombre() );
-            SGSystem.getVistaCliente().actualizarUI();
+            VetGestor.getGestor().getCliente().eliminarMascotaPorNombre(  mascota.getNombre() );
+            VetGestor.getVistaCliente().actualizarUI();
 
             dispose(); // Cierra el diálogo
 
@@ -157,14 +156,14 @@ public class CrearMascota extends JDialog {
         }
 
         // Crear la instancia de Mascota
-        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, SGSystem.getGestor().getCliente().getDni()); // Por defecto el sexo masculino
+        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, VetGestor.getGestor().getCliente().getDni()); // Por defecto el sexo masculino
 
         //TODO: Hay que agregar la mascota al objeto clienteSeleccionado dentro del Gestor
 
         // Indicar que la mascota ha sido creada exitosamente
         mascotaCreada = true;
 
-        SGSystem.getGestor().agregarMascota( nuevaMascota );
+        VetGestor.getGestor().agregarMascota( nuevaMascota );
         System.out.println( nuevaMascota.toString() );
 
 
@@ -181,12 +180,12 @@ public class CrearMascota extends JDialog {
             JOptionPane.showMessageDialog(this, "El nombre de la mascota es requerido", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        SGSystem.getGestor().getCliente().eliminarMascotaPorNombre( mascota.getNombre()  );
+        VetGestor.getGestor().getCliente().eliminarMascotaPorNombre( mascota.getNombre()  );
 
         // Crear la instancia de Mascota
-        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, SGSystem.getGestor().getCliente().getDni()); // Por defecto el sexo masculino
+        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, VetGestor.getGestor().getCliente().getDni()); // Por defecto el sexo masculino
 
-        SGSystem.getGestor().getCliente().agregarMascota(nuevaMascota);
+        VetGestor.getGestor().getCliente().agregarMascota(nuevaMascota);
 
     }
 

@@ -2,7 +2,7 @@ package UI;
 
 import Entidades.Usuario;
 import Enumeraciones.Rol;
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.*;
 public class LogIn {
     private final static String newline = "\n";
 
-    private SGSystem gestor = SGSystem.getGestor();
+    private VetGestor gestor = VetGestor.getGestor();
     private JPanel panel;
     private JTextField dniInput;
     private JButton logInButton;
@@ -37,13 +37,13 @@ public class LogIn {
                     JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
                 } else {
                     if(nUser.getRole().equals(Rol.CLIENTE)){
-                        SGSystem.setVistaCliente(new VistaCliente(mainPanel, cardLayout, nUser));
-                        mainPanel.add(SGSystem.getVistaCliente().getPanel(), "vistaCliente");
+                        VetGestor.setVistaCliente(new VistaCliente(mainPanel, cardLayout, nUser));
+                        mainPanel.add(VetGestor.getVistaCliente().getPanel(), "vistaCliente");
                         cardLayout.show(mainPanel, "vistaCliente");
                     } else if (nUser.getRole().equals(Rol.VETERINARIO)) {
                         mainPanel.add(new VistaVeterinario(mainPanel, cardLayout, nUser).getPanel(), "vistaVeterinario");
                         cardLayout.show(mainPanel, "vistaVeterinario");
-                    } 
+                    }
 //                    else if (nUser.getRole().equals(Rol.ADMIN)) {
 //                        mainPanel.add(new VistaAdministrador(mainPanel, cardLayout, nUser).getPanel(), "vistaAdministrador");
 //                        cardLayout.show(mainPanel, "vistaAdministrador");

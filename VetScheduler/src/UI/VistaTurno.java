@@ -1,7 +1,7 @@
 package UI;
 
 import Entidades.Turno;
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class VistaTurno {
     private JPanel panel;
-    private SGSystem gestor = SGSystem.getGestor();
+    private VetGestor gestor = VetGestor.getGestor();
 
 
     private JTabbedPane tabbedPane1;

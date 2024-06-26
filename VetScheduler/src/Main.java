@@ -1,6 +1,5 @@
-import Entidades.Usuario;
 import UI.*;
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +27,7 @@ public class Main {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        SGSystem.setAppFrame(frame);
+        VetGestor.setAppFrame(frame);
 
         mainPanel.add( new LogIn( mainPanel, cardLayout ).getPanel() , "login");
         frame.add( mainPanel );

@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SGSystem {
-    private static SGSystem gestor;
+public class VetGestor {
+    private static VetGestor gestor;
 
     private static JFrame appFrame;
     private static VistaCliente vistaCliente;
@@ -26,9 +26,9 @@ public class SGSystem {
     private static Cliente clienteSeleccionado;
     private static Veterinario veterinarioSeleccionado;
 
-    public static SGSystem getGestor() {
+    public static VetGestor getGestor() {
         if (gestor == null){
-            gestor = new SGSystem();
+            gestor = new VetGestor();
         }
         return gestor;
     }
@@ -38,7 +38,7 @@ public class SGSystem {
     }
 
     public static void setAppFrame(JFrame appFrame) {
-        SGSystem.appFrame = appFrame;
+        VetGestor.appFrame = appFrame;
     }
 
     public static VistaCliente getVistaCliente() {
@@ -46,7 +46,7 @@ public class SGSystem {
     }
 
     public static void setVistaCliente(VistaCliente vistaCliente) {
-        SGSystem.vistaCliente = vistaCliente;
+        VetGestor.vistaCliente = vistaCliente;
     }
 
     public Usuario iniciarSesion(String dni, String password ){

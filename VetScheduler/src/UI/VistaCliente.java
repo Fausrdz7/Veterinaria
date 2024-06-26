@@ -5,7 +5,7 @@ import Entidades.Mascota;
 import Entidades.Turno;
 import Entidades.Usuario;
 import Interfaces.DialogCallback;
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,10 +20,10 @@ public class VistaCliente implements DialogCallback {
     private JPanel listaMascotas;
     private JPanel listaTurnos;
     private JButton crearMascotaButton;
-    private SGSystem gestor = SGSystem.getGestor();
+    private VetGestor gestor = VetGestor.getGestor();
     private JPanel mainPanel;
     private CardLayout cardLayout;
-    private  CrearMascota dialog = new CrearMascota( SGSystem.getAppFrame() ); //Se inica el dialog para crear la mascota
+    private  CrearMascota dialog = new CrearMascota( VetGestor.getAppFrame() ); //Se inica el dialog para crear la mascota
 
     private Cliente cliente;
     private List<Mascota> mascotas;
@@ -46,7 +46,7 @@ public class VistaCliente implements DialogCallback {
         crearMascotaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dialog = new CrearMascota( SGSystem.getAppFrame() );
+                dialog = new CrearMascota( VetGestor.getAppFrame() );
                 dialog.setVisible(true);
             }
         });
@@ -70,7 +70,7 @@ public class VistaCliente implements DialogCallback {
                 });
 
                 editarMascotaButton.addActionListener( e -> {
-                    CrearMascota dialog = new CrearMascota( SGSystem.getAppFrame(), mascota );
+                    CrearMascota dialog = new CrearMascota( VetGestor.getAppFrame(), mascota );
                     dialog.setVisible(true);
                 } );
 

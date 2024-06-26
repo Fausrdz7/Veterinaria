@@ -1,6 +1,6 @@
 package UI;
 
-import gestor.SGSystem;
+import gestor.VetGestor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ public class DiagnosticarVeterinario {
     private JButton botonBuscarReserva;
     private JTextField DiagnosticoTextField;
     private JButton confirmarDiagnosticoYDarButton;
-    private SGSystem gestor = SGSystem.getGestor();
+    private VetGestor gestor = VetGestor.getGestor();
 
 
     public DiagnosticarVeterinario(JPanel panel, JPanel mainPanel, CardLayout cardLayout, JTextField inpuCodigoTurno, JButton botonBuscarReserva, JTextField diagnosticoTextField, JButton confirmarDiagnosticoYDarButton) {
