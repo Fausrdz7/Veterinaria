@@ -122,6 +122,10 @@ public class SGSystem {
         getCliente().agregarMascota( nuevaMascota );
     }
 
+    public void borrarMascota(String nombre) {
+        getCliente().eliminarMascotaPorNombre(  nombre  );
+    }
+
     public void updateVistaCliente(){
 
     }

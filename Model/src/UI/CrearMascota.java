@@ -108,22 +108,30 @@ public class CrearMascota extends JDialog {
         fechaNacimientoPanel.add(fechaNacimientoSpinner);
 
 
+
+
         // Listener para el botón cancelar
         buttonCancel.addActionListener( e->{
             mascotaCreada = false;
+            SGSystem.getGestor().borrarMascota( mascota.getNombre() );
+            SGSystem.getVistaCliente().actualizarUI();
             dispose(); // Cierra el diálogo
         });
 
         buttonOK.addActionListener( e->{
             mascotaCreada = true;
-            //actualizar una mascota
+            editarMascota(mascota);
+            SGSystem.getVistaCliente().actualizarUI();
+
             dispose(); // Cierra el diálogo
 
         });
 
         borrarButton.addActionListener( e->{
             mascotaCreada = true;
-            //Borra una mascota
+            SGSystem.getGestor().getCliente().eliminarMascotaPorNombre(  mascota.getNombre() );
+            SGSystem.getVistaCliente().actualizarUI();
+
             dispose(); // Cierra el diálogo
 
         });
@@ -164,12 +172,22 @@ public class CrearMascota extends JDialog {
         dispose();
     }
 
-    private void borrarMascota() {
-        //TODO: borra la mascota seleccionada buscandola por nombre
-    }
 
-    private void editarMascota() {
-        //TODO: Toma los nuevos datos de las mascotas y los actualiza
+    private void editarMascota(Mascota mascota) {
+        String nombre = nombreInput.getText().trim();
+        Date fechaNacimiento = (Date) fechaNacimientoSpinner.getValue();
+
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El nombre de la mascota es requerido", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        SGSystem.getGestor().getCliente().eliminarMascotaPorNombre( mascota.getNombre()  );
+
+        // Crear la instancia de Mascota
+        nuevaMascota = new Mascota(nombre, true, fechaNacimiento, SGSystem.getGestor().getCliente().getDni()); // Por defecto el sexo masculino
+
+        SGSystem.getGestor().getCliente().agregarMascota(nuevaMascota);
+
     }
 
     public boolean isMascotaCreada() {
