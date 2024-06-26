@@ -35,7 +35,7 @@ public class VistaCliente {
         mascotas = gestor.getMascotasByClient(user.getDni());
 
         crearClientePanel.setLayout(new GridLayout());
-        crearClientePanel.add( new buscarUsuarioAdmin().getPanel() );
+        crearClientePanel.add( new VistaTurno().getPanel() );
 
         listarMascotas();
 

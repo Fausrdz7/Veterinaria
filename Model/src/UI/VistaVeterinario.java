@@ -12,6 +12,11 @@ public class VistaVeterinario {
     private JLabel userData;
     private JButton cambiarVistaButton;
     private JPanel listaTurnos;
+    private JTabbedPane tabbedPane1;
+    private JTextField InpuCodigoTurno;
+    private JButton botonBuscarReserva;
+    private JTextField DiagnosticoTextField;
+    private JButton confirmarDiagnosticoYDarButton;
     private SGSystem gestor = SGSystem.getGestor();
     private static Veterinario veterinario;
     private JPanel mainPanel;

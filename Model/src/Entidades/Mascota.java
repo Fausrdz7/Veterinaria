@@ -22,9 +22,6 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
         this.nombre = nombre;
     }
 
-    public String getDniCliente() {
-        return dniCliente;
-    }
 
     public String getNombre() {
         return nombre;
@@ -51,8 +48,22 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
-        this.sexo = sexo;
+
+
+    public Cliente getDueno() {
+        return dueno;
+    }
+
+    public void setDueno(Cliente dueno) {
+        this.dueno = dueno;
+    }
+
+    public String getDniCliente() {
+        return dniCliente;
+    }
+
+    public void setDniCliente(String dniCliente) {
+        this.dniCliente = dniCliente;
     }
 
     public Date getFechaNacimiento() {
@@ -61,5 +72,29 @@ public class Mascota implements Filtrable<String>, Buscable<String> {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Diagnostico getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(Diagnostico diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public boolean isSexo() {
+        return sexo;
+    }
+
+    public void setSexo(boolean sexo) {
+        this.sexo = sexo;
+    }
+
+    public ArrayList<Diagnostico> getDiagnosticos() {
+        return diagnosticos;
+    }
+
+    public void setDiagnosticos(ArrayList<Diagnostico> diagnosticos) {
+        this.diagnosticos = diagnosticos;
     }
 }
