@@ -30,10 +30,6 @@ public class VistaVeterinario {
 
     }
 
-    public void cambiarAVistaNueva(){
-        mainPanel.add( new vistaNUeva().getPanel(), "vistaNueva" );
-        cardLayout.show( mainPanel, "vistaNueva" );
-    }
 
     public JPanel getPanel() {
         return panel;
