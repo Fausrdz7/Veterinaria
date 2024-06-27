@@ -4,6 +4,7 @@ import Colleciones.*;
 import Colleciones.ColeccionMascota;
 import Colleciones.ColeccionVeterinario;
 import Entidades.*;
+import Enumeraciones.Rol;
 import UI.VistaCliente;
 
 import javax.swing.*;
@@ -29,6 +30,17 @@ public class VetGestor {
     public static VetGestor getGestor() {
         if (gestor == null){
             gestor = new VetGestor();
+
+
+            Cliente c1 = new Cliente( "1234", "333333", Rol.CLIENTE, "AA", "BB");
+            c1.agregarMascota( new Mascota("COCO", true,  new Date(), c1.getDni()) );
+            c1.agregarMascota( new Mascota("VICKY", false,  new Date(), c1.getDni()) );
+
+            gestor.coleccionCliente.agregar(c1);
+
+            gestor.coleccionCliente.agregar( new Cliente( "1234", "444444" , Rol.CLIENTE , "BB", "CC"));
+
+            gestor.coleccionVeterinario.agregarVeterinario( new Veterinario("1234","222222", Rol.VETERINARIO,"Pablo","Estravis","AAA111"));
         }
         return gestor;
     }

@@ -12,24 +12,12 @@ public class ColeccionCliente {
     private final Coleccion< Cliente,  String, String > coleccionCliente = new Coleccion<>();
 
     public ColeccionCliente(){
-
-        Cliente c1 = new Cliente( "1234", "333333", Rol.CLIENTE, "AA", "BB");
-        c1.agregarMascota( new Mascota("COCO", true,  new Date(), c1.getDni()) );
-        c1.agregarMascota( new Mascota("VICKY", false,  new Date(), c1.getDni()) );
-
-        coleccionCliente.agregar(c1);
-
-        coleccionCliente.agregar( new Cliente( "1234", "444444" , Rol.CLIENTE , "BB", "CC"));
-
     }
 
     public void agregar(Cliente cliente){
         coleccionCliente.agregar(cliente);
     }
 
-    public boolean agregarCliente(Cliente vuelo) {
-        return coleccionCliente.agregar(vuelo);
-    }
 
     public Cliente buscarCliente(String dni) throws Exception {
         return coleccionCliente.buscar(dni);
@@ -40,8 +28,8 @@ public class ColeccionCliente {
     }
 
     public boolean eliminarCliente(String dni) throws Exception {
-        Cliente vuelo = buscarCliente(dni);
-        return coleccionCliente.eliminar(vuelo);
+        Cliente nCliente = buscarCliente(dni);
+        return coleccionCliente.eliminar(nCliente);
     }
 
     public void guardarClientes(String fileName) throws IOException {

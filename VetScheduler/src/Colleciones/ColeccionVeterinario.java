@@ -12,7 +12,7 @@ public class ColeccionVeterinario {
     private final Coleccion<Veterinario,String,String>coleccionVeterinario=new Coleccion<>();
 
     public ColeccionVeterinario() {
-        coleccionVeterinario.agregar( new Veterinario("1234","222222", Rol.VETERINARIO,"Pablo","Estravis","AAA111"));
+
     }
 
     public Veterinario buscarVeterinario(String dni)  {
