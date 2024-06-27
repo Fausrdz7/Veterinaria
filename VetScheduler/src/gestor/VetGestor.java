@@ -32,7 +32,7 @@ public class VetGestor {
             gestor = new VetGestor();
 
 
-            Cliente c1 = new Cliente( "1234", "333333", Rol.CLIENTE, "AA", "BB");
+            Cliente c1 = new Cliente( "1234", "333333", Rol.CLIENTE, "Mai Cai", "Iney");
             c1.agregarMascota( new Mascota("COCO", true,  new Date(), c1.getDni()) );
             c1.agregarMascota( new Mascota("VICKY", false,  new Date(), c1.getDni()) );
 
